@@ -15,7 +15,7 @@ export default function Sidebar() {
   const [isHoveredLogOut, setIsHoveredLogOut] = useState(false);
   const [isHoveredActivation, setIsHoveredActivation] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  // const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userName, setUserName] = useState("")
 
@@ -23,18 +23,18 @@ export default function Sidebar() {
     localStorage.removeItem("authToken")
     window.location.reload()
   }
-  // const languages = [
-  //   { code: 'EN', name: 'English', flag: `${flagEn}` },
-  //   { code: 'AR', name: 'Arabic', flag: `${flagAr}` },
-  // ];
+  const languages = [
+    { code: 'EN', name: 'English', flag: `${flagEn}` },
+    { code: 'AR', name: 'Arabic', flag: `${flagAr}` },
+  ];
 
-  // const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setIsOpen(!isOpen);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  // const handleLanguageChange = (language) => {
-  //   setSelectedLanguage(language.code);
-  //   setIsOpen(false);
-  //   // Add translation logic here if necessary
-  // };
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language.code);
+    setIsOpen(false);
+    // Add translation logic here if necessary
+  };
   const adminInfo = async () => {
     try {
       const response = await fetch('https://servo-back.onrender.com/admin/info', {
@@ -87,7 +87,7 @@ export default function Sidebar() {
             <div className="flex items-center">
               <div className="flex items-center ms-3">
                 <h1 className={`${styles.user} font-bold mr-1`}>Hi {userName}</h1>
-                {/* <div className="relative inline-block text-left">
+                 <div className="relative inline-block text-left">
                   <div
                     className="flex items-center space-x-2 cursor-pointer"
                     onClick={toggleDropdown}
@@ -127,7 +127,7 @@ export default function Sidebar() {
                       ))}
                     </div>
                   )}
-                </div> */}
+                </div> 
                 <i class={`fa-solid fa-bell ${styles.notifications} mr-1`}></i>
               </div>
             </div>

@@ -275,7 +275,7 @@ export default function Reseller() {
   }
 
   const filteredReseller = isAllReseller.filter((item) =>
-    item.userName.toLowerCase().includes(searchQuery.toLowerCase())
+    item?.userName?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
     <>
